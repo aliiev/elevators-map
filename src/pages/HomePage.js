@@ -24,14 +24,13 @@ const HomePage = () => {
 
   const chartData = {
     labels: state.sort((a, b) => b.count - a.count).map(st => st.title),
-    datasets: [
-      {
+    datasets: [{
         label: 'Количество элеваторов',
         data: state.sort((a, b) => b.count - a.count).map(st => st.count),
         backgroundColor: 'rgba(26, 26, 26, 0.1)',
         borderColor: 'rgba(26, 26, 26, 0.1)',
         borderWidth: 2,
-      },
+      }
     ]
   }
 
@@ -57,7 +56,7 @@ const HomePage = () => {
             <div className="col-12 col-md-6">
               <h1 className="display-5 fw-bold">Элеваторы Украины</h1>
               <p className="fs-4">Всего собрано <b className="text-primary">{ elevators.length }</b> элеваторов <br />из <b className="text-primary">{ regions.length }</b> регионов Украины</p>
-              <Link className="btn btn-primary btn-lg" to="/map">Перейти к карте</Link>
+              <Link className="btn btn-primary btn-lg" to="/map">Перейти к карте <i className="bi-map ms-1" /></Link>
             </div>
             <div className="col-12 col-md-6 my-3 my-md-0" style={{ height: '40vh' }}>
               <Doughnut data={ chartData } options={ chartOptions } />
